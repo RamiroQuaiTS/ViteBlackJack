@@ -110,21 +110,7 @@ import { crearDeck, pedirCarta, valorCarta, crearCarta } from './usecases/index'
         numeroCartasIA = 0
     }
 
-    const crearCarta = (carta, turno) => {
-        const imgCarta = document.createElement('img');
-        imgCarta.className = "carta";
-        imgCarta.src = `assets/cartas/${carta}.png`;
-
-        if(puntosJugadoresDom[turno].innerText === '0'){
-            divCartasJugadores[turno].innerHTML = '';
-        }
-
-        divCartasJugadores[turno].append(imgCarta);
-    }
-
     inicializarJuego();
-
-
 
     //Eventos
     btnPedir.addEventListener('click', () =>{   
