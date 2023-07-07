@@ -1,4 +1,4 @@
-import { crearDeck, pedirCarta, valorCarta, crearCarta } from './usecases/index';
+import { crearDeck, pedirCarta, valorCarta } from './usecases/index';
 // C = (clubs)Treboles
 // D = (diaminds)Diamantes
 // H = (hearts)Corazones
@@ -43,6 +43,18 @@ import { crearDeck, pedirCarta, valorCarta, crearCarta } from './usecases/index'
         puntosJuadores[turno] = puntosJuadores[turno] + valorCarta(carta, turno)*1;
         puntosJugadoresDom[turno].innerText = puntosJuadores[turno];
         return puntosJuadores[turno]
+    }
+
+    const crearCarta = (carta, turno) => {
+        const imgCarta = document.createElement('img');
+        imgCarta.className = "carta";
+        imgCarta.src = `assets/cartas/${carta}.png`;
+    
+        if(puntosJugadoresDom[turno].innerText === '0'){
+            divCartasJugadores[turno].innerHTML = '';
+        }
+    
+        divCartasJugadores[turno].append(imgCarta);
     }
 
     const turnoIA = (puntoMinimos) => {
